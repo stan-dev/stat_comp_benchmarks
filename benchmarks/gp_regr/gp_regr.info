@@ -1,0 +1,20 @@
+Gaussian Process regression
+
+One-dimensional Gaussian process Regression using the
+exponential quadratic covariance function.
+
+./gp_regr sample num_samples=250000 algorithm=hmc adapt delta=0.9 \
+random seed=594838383 data file=gp_regr.data.R id=1 output file=output.1.csv
+
+./gp_regr sample num_samples=250000 algorithm=hmc adapt delta=0.9 \
+random seed=594838383 data file=gp_regr.data.R id=2 output file=output.2.csv
+
+./gp_regr sample num_samples=250000 algorithm=hmc adapt delta=0.9 \
+random seed=594838383 data file=gp_regr.data.R id=3 output file=output.3.csv
+
+./gp_regr sample num_samples=250000 algorithm=hmc adapt delta=0.9 \
+random seed=594838383 data file=gp_regr.data.R id=4 output file=output.4.csv
+
+Ground Truth Settings:
+
+Dimensions: 3

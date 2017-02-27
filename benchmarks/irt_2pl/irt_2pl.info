@@ -1,0 +1,22 @@
+Two Parameter Logistic Item Response Theory Model
+
+Hierarchical item response theory model.
+
+Ground Truth Settings:
+./irt_2pl sample algorithm=hmc adapt delta=0.9 \
+num_samples=250000 random seed=1948458383 \
+data file=irt_2pl.data.R id=1 output file=output.1.csv
+
+./irt_2pl sample algorithm=hmc adapt delta=0.9 \
+num_samples=250000 random seed=1948458383 \
+data file=irt_2pl.data.R id=2 output file=output.2.csv
+
+./irt_2pl sample algorithm=hmc adapt delta=0.9 \
+num_samples=250000 random seed=1948458383 \
+data file=irt_2pl.data.R id=3 output file=output.3.csv
+
+./irt_2pl sample algorithm=hmc adapt delta=0.9 \
+num_samples=250000 random seed=1948458383 \
+data file=irt_2pl.data.R id=4 output file=output.4.csv
+
+Dimensions: 144

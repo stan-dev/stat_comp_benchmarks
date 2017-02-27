@@ -1,0 +1,60 @@
+#!/bin/bash
+
+threshold=0.25
+#algo=nuts
+algo=vb
+
+n_bad_param=0
+n_total_param=0
+n_bad_model=0
+n_total_model=0
+
+models=(`ls benchmarks`)
+models=(eight_schools low_dim_corr_gauss low_dim_gauss_mix low_dim_gauss_mix_collapse \
+        sir arK arma garch irt_2pl gp_regr gp_pois_regr)
+
+for model in ${models[@]}
+do
+  # Check for all required empirical results
+  required_params=`awk '{print $1}' benchmarks/${model}/${model}.params`
+
+  n_bad=0
+  n_total=0
+
+  echo "$model"
+
+  while read line
+  do
+
+    param_name=`echo $line | awk '{print $1}'`
+    param_mean=`echo $line | awk '{print +$2}'`
+    param_dev=`echo $line | awk '{print +$3}'`
+
+    if [ `grep -cF "${param_name}" empirical_results/${algo}/${model}.fit` -eq 0 ]; then
+      echo "Parameter $param_name was not found in emperical_results/${algo}/${model}.fit"
+      let ++n_bad
+      let ++n_total_param 
+      continue
+    fi
+
+    safe_name=`echo $param_name | sed -e 's,\[,\\\[,' -e 's,\],\\\],'`
+    est_mean=`grep "^${safe_name}" empirical_results/${algo}/${model}.fit | awk '{print +$2}'`
+
+    z=$(echo "scale=10; ($param_mean - $est_mean) / $param_dev" | bc)
+    z=`echo $z | sed 's,-,,'`
+    [ $(echo "$z > $threshold" | bc) -ne 0 ] && let ++n_bad
+    let ++n_total_param
+
+    echo "  $param_name $z"
+
+  done < benchmarks/${model}/${model}.params
+
+  let n_bad_param=n_bad_param+n_bad
+  [ $n_bad -gt 0 ] && let ++n_bad_model
+  let ++n_total_model
+
+  echo ""
+done
+
+echo "$n_bad_param of $n_total_param parameters were poorly estimated"
+echo "$n_bad_model of $n_total_model models featured at least one poorly-estimated model"

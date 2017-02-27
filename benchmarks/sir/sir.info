@@ -1,0 +1,19 @@
+SIR
+
+A relatively simple susceptible-infected-recovered (SIR) model
+using the RK45 ODE integrator
+
+Ground Truth Settings: 
+./sir sample num_samples=250000 algorithm=hmc stepsize=0.001 \
+random seed=1948458383 data file=sir.data.R id=1 output file=output.1.csv
+
+./sir sample num_samples=250000 algorithm=hmc stepsize=0.001 \
+random seed=1948458383 data file=sir.data.R id=2 output file=output.2.csv
+
+./sir sample num_samples=250000 algorithm=hmc stepsize=0.001 \
+random seed=1948458383 data file=sir.data.R id=3 output file=output.3.csv
+
+./sir sample num_samples=250000 algorithm=hmc stepsize=0.001 \
+random seed=1948458383 data file=sir.data.R id=4 output file=output.4.csv
+
+Dimensions: 4

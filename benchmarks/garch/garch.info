@@ -1,0 +1,18 @@
+Generalized Autoregressive Conditional Heteroscedastic Model
+
+A GARCH(1, 1) time series model
+
+Ground Truth Settings:
+./garch sample num_samples=250000 random seed=1948458383 \
+data file=garch.data.R id=1 output file=output.1.csv
+
+./garch sample num_samples=250000 random seed=1948458383 \
+data file=garch.data.R id=2 output file=output.2.csv
+
+./garch sample num_samples=250000 random seed=1948458383 \
+data file=garch.data.R id=3 output file=output.3.csv
+
+./garch sample num_samples=250000 random seed=1948458383 \
+data file=garch.data.R id=4 output file=output.4.csv
+
+Dimensions: 4

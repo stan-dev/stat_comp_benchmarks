@@ -1,0 +1,18 @@
+Autoregressive Moving Average
+
+A ARMA(1, 1) time series model.
+
+Ground Truth Settings:
+./arma sample num_samples=250000 random seed=1948458383 \
+init=1 data file=arma.data.R id=1 output file=output.1.csv
+
+./arma sample num_samples=250000 random seed=1948458383 \
+init=1 data file=arma.data.R id=2 output file=output.2.csv
+
+./arma sample num_samples=250000 random seed=1948458383 \
+init=1 data file=arma.data.R id=3 output file=output.3.csv
+
+./arma sample num_samples=250000 random seed=1948458383 \
+init=1 data file=arma.data.R id=4 output file=output.4.csv
+
+Dimensions: 4

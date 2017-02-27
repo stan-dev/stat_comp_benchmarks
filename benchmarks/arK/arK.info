@@ -1,0 +1,19 @@
+Autoregressive-K
+
+A AR(K) time series model, K set to 5 in the included data.
+
+Ground Truth Settings:
+./arK sample num_samples=250000 random seed=1948458383 \
+data file=arK.data.R id=1 output file=output.1.csv
+
+./arK sample num_samples=250000 random seed=1948458383 \
+data file=arK.data.R id=2 output file=output.2.csv
+
+./arK sample num_samples=250000 random seed=1948458383 \
+data file=arK.data.R id=3 output file=output.3.csv
+
+./arK sample num_samples=250000 random seed=1948458383 \
+data file=arK.data.R id=4 output file=output.4.csv
+
+Dimensions: 7
+(2 + K)

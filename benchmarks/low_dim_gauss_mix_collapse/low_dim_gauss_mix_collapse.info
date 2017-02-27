@@ -1,0 +1,12 @@
+Collapased Low-Dimensional Gaussian Mixture Model
+
+A two-component Gaussian mixture model fit to poorly-separated data,
+causing the components to collapse into each other and inducing a
+"bowtie" posterior geometry.  Means are not ordered to preserve the
+full bowtie.
+
+
+Ground Truth Settings: ./low_dim_gauss_mix_collapse sample num_samples=1000000 \ 
+                       random seed=1948458383 data file=low_dim_gauss_mix_collapse.data.R
+
+Dimensions: 5

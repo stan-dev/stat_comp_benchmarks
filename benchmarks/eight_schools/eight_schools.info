@@ -1,0 +1,13 @@
+Eight Schools
+
+A non-centered implementation of the infamous eight schools model from 
+
+Rubin, Donald B. 1981. “Estimation in Parallel Randomized Experiments.” Journal of Educational and Behavioral Statistics 6 (4): 377–401.
+
+Ground Truth Settings: ./eight_schools sample num_samples=1000000 random seed=8737382 data file=eight_schools.data.R
+
+Ground Truth Settings: ./eight_schools sample num_samples=1000000 \
+                         algorithm=hmc adapt delta=0.9 random seed=8737382 \
+                         data file=eight_schools.data.R
+
+Dimensions: 10

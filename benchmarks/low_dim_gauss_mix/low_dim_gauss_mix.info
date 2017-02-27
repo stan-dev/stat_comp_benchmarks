@@ -1,0 +1,10 @@
+Low-Dimensional Gaussian Mixture Model
+
+A two-component Gaussian mixture model fit to well-separated data.
+Means are ordered to ensure identification.
+
+
+Ground Truth Settings: ./low_dim_gauss_mix sample num_samples=1000000 \ 
+                       random seed=1948458383 data file=low_dim_gauss_mix.data.R
+
+Dimensions: 5

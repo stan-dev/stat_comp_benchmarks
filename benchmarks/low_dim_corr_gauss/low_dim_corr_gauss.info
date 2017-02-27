@@ -1,0 +1,8 @@
+Low-Dimensional Correlated Gaussian
+
+A two-dimensional correlated Gaussian distribution with outputing means,
+variances, and correlation.
+
+Ground Truth Settings: ./low_dim_corr_gauss sample num_samples=1000000 random seed=1948458383
+
+Dimensions: 2
