@@ -41,7 +41,9 @@ parameters {
 }
 
 transformed parameters {
-  vector<lower=0>[4] y[N_t] = ode_rk45(simple_SIR, y0, t0, t, beta, kappa, gamma, xi, delta);
+  vector<lower=0>[4] y[N_t] = ode_rk45_tol(simple_SIR, y0, t0, t,
+					   1e-6, 1e-6, 1000,
+					   beta, kappa, gamma, xi, delta);
 }
   
 model {

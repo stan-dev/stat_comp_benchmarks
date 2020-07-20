@@ -42,7 +42,9 @@ parameters {
 }
 
 transformed parameters {
-  vector[1] C[N_t] = ode_bdf(one_comp_mm_elim_abs, C0, t0, times, k_a, K_m, V_m, D, V);
+  vector[1] C[N_t] = ode_bdf_tol(one_comp_mm_elim_abs, C0, t0, times,
+				 1e-8, 1e-8, 1000,
+				 k_a, K_m, V_m, D, V);
 }
 
 model {
