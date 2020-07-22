@@ -31,7 +31,7 @@ data {
   real times[N_t];   // Measurement times in days
 
   // Measured concentrations in effect compartment in mg/L
-  real C_hat[N_t];
+  real C[N_t];
 }
 
 parameters {
@@ -42,7 +42,7 @@ parameters {
 }
 
 transformed parameters {
-  vector[1] C[N_t] = ode_bdf_tol(one_comp_mm_elim_abs, C0, t0, times,
+  vector[1] mu_C[N_t] = ode_bdf_tol(one_comp_mm_elim_abs, C0, t0, times,
 				 1e-8, 1e-8, 1000,
 				 k_a, K_m, V_m, D, V);
 }
@@ -55,12 +55,11 @@ model {
   sigma ~ cauchy(0, 1);
 
   // Likelihood
-  for (n in 1:N_t)
-    C_hat[n] ~ lognormal(log(C[n, 1]), sigma);
+  C ~ lognormal(log(mu_C[, 1]), sigma);
 }
 
 generated quantities {
   real C_ppc[N_t];
   for (n in 1:N_t)
-    C_ppc[n] = lognormal_rng(log(C[n, 1]), sigma);
+    C_ppc[n] = lognormal_rng(log(mu_C[n, 1]), sigma);
 }

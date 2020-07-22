@@ -24,8 +24,8 @@ data {
   int<lower=0> N_t;
   real t[N_t];
   vector[4] y0;
-  int stoi_hat[N_t];
-  real B_hat[N_t];
+  int stoi[N_t];
+  real B[N_t];
 }
 
 transformed data {
@@ -52,9 +52,9 @@ model {
   xi ~ cauchy(0, 25);
   delta ~ cauchy(0, 1);
 
-  stoi_hat[1] ~ poisson(y0[1] - y[1, 1]);
+  stoi[1] ~ poisson(y0[1] - y[1, 1]);
   for (n in 2:N_t)
-    stoi_hat[n] ~ poisson(y[n - 1, 1] - y[n, 1]);
+    stoi[n] ~ poisson(y[n - 1, 1] - y[n, 1]);
 
-  B_hat ~ lognormal(log(y[, 4]), 0.15);  
+  B ~ lognormal(log(y[, 4]), 0.15);  
 }
