@@ -4,7 +4,7 @@
 # using the RK45 ODE integrator
 
 # Ground Truth Settings: 
-./sir sample num_samples=5000 data file=sir.data.R id=1 output file=output.1.csv
-./sir sample num_samples=5000 data file=sir.data.R id=2 output file=output.2.csv
-./sir sample num_samples=5000 data file=sir.data.R id=3 output file=output.3.csv
-./sir sample num_samples=5000 data file=sir.data.R id=4 output file=output.4.csv
+./sir sample num_samples=5000 data file=sir.data.R random seed=1 id=1 output file=output.1.csv
+./sir sample num_samples=5000 data file=sir.data.R random seed=2 id=2 output file=output.2.csv
+./sir sample num_samples=5000 data file=sir.data.R random seed=3 id=3 output file=output.3.csv
+./sir sample num_samples=5000 data file=sir.data.R random seed=4 id=4 output file=output.4.csv

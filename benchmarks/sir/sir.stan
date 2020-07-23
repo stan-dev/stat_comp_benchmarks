@@ -47,14 +47,16 @@ transformed parameters {
 }
   
 model {
+  vector[N_t] y_diff;
+  y_diff[1] = y0[1] - y[1, 1];
+  for (n in 2:N_t)
+    y_diff[n] = y[n - 1, 1] - y[n, 1];
+  
   beta ~ cauchy(0, 2.5);
   gamma ~ cauchy(0, 1);
   xi ~ cauchy(0, 25);
   delta ~ cauchy(0, 1);
 
-  stoi[1] ~ poisson(y0[1] - y[1, 1]);
-  for (n in 2:N_t)
-    stoi[n] ~ poisson(y[n - 1, 1] - y[n, 1]);
-
+  stoi ~ poisson(y_diff);
   B ~ lognormal(log(y[, 4]), 0.15);  
 }
